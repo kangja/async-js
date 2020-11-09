@@ -1,1 +1,1 @@
-// asynchronous JavaScript. It will cover callbacks, promises, and async await syntax. These are all ways to deal with asynchronous data and what that menas 
+// asynchronous JavaScript. It will cover callbacks, promises, and async await syntax. These are all ways to deal with asynchronous data and what that means is asynchronous is when something's going on, but you don't want to wait until that thing is done to continue your program. You want to continue while it's happening 
