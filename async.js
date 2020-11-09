@@ -1,0 +1,1 @@
+// asynchronous JavaScript. It will cover callbacks, promises, and async await syntax. These are all ways to deal with asynchronous data and what that menas 
