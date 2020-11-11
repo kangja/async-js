@@ -23,17 +23,30 @@ function getPosts() { //we're mimicking how it is to fetch from a server and tha
   }, 1000)  
 }
 
-getPosts();//need to call the function for it to work. After a second, because it's in a set timeout, it will load the 2 posts. We get the posts from the array and then we're looping through and we are putting them into the output variable and then outputting that on to the page. 
+// getPosts();//need to call the function for it to work. After a second, because it's in a set timeout, it will load the 2 posts. We get the posts from the array and then we're looping through and we are putting them into the output variable and then outputting that on to the page. 
 
 
 //we want to get the post and create a new one.
-function createPost(post) {
+// function createPost(post) {
+//   setTimeout(() => {
+//     posts.push(post);
+// }, 2000); //this one takes 2 seconds/2000ms.
+// }
+
+// createPost({
+//   title: "Post Three", body: "This is post three"
+// }); //When we run this, we don't see "Post Three". The reason is createPost took longer than the getPost. getPost happened in 1 second; our server returned it in 1 second. The createPost function took 2 seconds. By the time we ran createPost, the DOM was already painted. So we can't do anything beyond that point. This is where asynchronous programming comes in and this is where callbacks come in which is one way to handle it. Lets make this work by using a callback. 
+
+
+// for createPost function, we put in the second parameter. We will call it callback and in fact, you could call this anything. And we want that function to be called right after that post is pushed on. And then all we have to do is we have to make getPost this callback so that it runs right after this is pushed, NOT wating 2 seconds for the entire function so we can completely get rid of getPost() and add in the next second parameter of getPosts with no parenthesis. 
+function createPost(post, callback) {
   setTimeout(() => {
     posts.push(post);
-}, 2000); //this one takes 2 seconds/2000ms.
+    callback();
+}, 2000);
 }
+
 
 createPost({
   title: "Post Three", body: "This is post three"
-}); //When we run this, we don't see "Post Three". The reason is createPost took longer than the getPost. GET
-
+}, getPosts); 
