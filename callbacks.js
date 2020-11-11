@@ -24,3 +24,16 @@ function getPosts() { //we're mimicking how it is to fetch from a server and tha
 }
 
 getPosts();//need to call the function for it to work. After a second, because it's in a set timeout, it will load the 2 posts. We get the posts from the array and then we're looping through and we are putting them into the output variable and then outputting that on to the page. 
+
+
+//we want to get the post and create a new one.
+function createPost(post) {
+  setTimeout(() => {
+    posts.push(post);
+}, 2000); //this one takes 2 seconds/2000ms.
+}
+
+createPost({
+  title: "Post Three", body: "This is post three"
+}); //When we run this, we don't see "Post Three". The reason is createPost took longer than the getPost. GET
+
