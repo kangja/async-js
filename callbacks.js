@@ -49,4 +49,7 @@ function createPost(post, callback) {
 
 createPost({
   title: "Post Three", body: "This is post three"
-}, getPosts); 
+}, getPosts); //what happened is it waited 2 seconds and then it showed all of the posts. The reason it waited is because it had to wait to create the post before it actually called the callback. It had to push on to it and then call a callback and this whole thing took 2 seconds, but it adds the extra post. This is a good example of how callbacks work and why you would use a callback. 
+// Post One
+// Post Two
+// Post Three 
